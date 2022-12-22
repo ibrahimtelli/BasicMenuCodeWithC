@@ -1,52 +1,89 @@
-# Prerequisites
-*.d
+#include <stdio.h>
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+void menu();
+int min(int,int,int);
+int maks(int,int,int);
+int mutlak(int);
 
-# Linker output
-*.ilk
-*.map
-*.exp
+int main(){
+menu();
+int secim;
+printf("Lutfen secim yapiniz.");
+scanf("%d",&secim);
+int a,b,c;
 
-# Precompiled Headers
-*.gch
-*.pch
+switch(secim){
+case 1:
+   printf("Lutfen birinci sayiyi girin");
+   scanf("%d",&a);
+   printf("Lütfen ikinci sayiyi girin");
+   scanf("%d",&b);
+   printf("Lutfen ucunncu sayiyi girin");
+   scanf("%d",&c);
+printf("Girilen sayilarin en kucugu % dir.",min(a,b,c));
+            break;
+case 2:
+	   printf("\nLutfen birinci sayiyi girin");
+       scanf("%d",&a);
+       printf("\nLütfen ikinci sayiyi girin");
+       scanf("%d",&b);
+       printf("\nLutfen ucunncu sayiyi girin");
+       scanf("%d",&c);
+        printf("\nGirilen sayilarin en kucugu % dir.",maks(a,b,c));
+            break;
+case 3:
+	printf("Lutfen mutlak degeri alinacak sayiyi giriniz:\n");
+	scanf("%d",&a);
+	printf("Girilen sayinin mutlak degeri % dir.",mutlak(a));
+	break;
+	
+	default:
+		printf("uygun secim yapmadiniz.");
+		
+}	
+		
+	return 0;
+	
+}
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+void menu(){
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+printf("----------------------------------------------------------\n");
+printf("---------------------------MENU---------------------------\n");
+printf("----------------------------------------------------------\n");
+printf("\n1 Giriceginiz 3 sayinin minimumunu bulalim");
+printf("\n2 Giriceginiz 3 sayinin maksimumunu bulalim");
+printf("\n3 Giriceginiz sayinin mutlak degerini bulalim");  
+printf("\n"); }
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+int min(int a,int b,int c){
+    int sonuc;
+    if ((a<b)&&(a<c))
+        sonuc=a;
+    else if ((b<a)&&(b<c))
+        sonuc=b;
+    else
+        sonuc=c;
+    return sonuc;
+}
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+int maks(int x,int y,int z){
+    int sonuc;
+    if ((x>y)&&(x>z))
+        sonuc=x;
+    else if ((y>x)&&(y>z))
+        sonuc=y;
+    else
+        sonuc=z;
+    return sonuc;
+}
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+ 
+
+int mutlak(int A){
+    if(A<0)
+        A=(-1)*A;
+    else 
+        A=A;
+    return A;
+}
